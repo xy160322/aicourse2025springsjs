@@ -33,5 +33,54 @@
     "title": "0x01 线性回归",
     "section": "练习",
     "text": "练习\n\n给定训练集 \\(T=\\{(1,2),(2,3),(3,4),(4,2)\\}\\)， \\(m=4\\)\n决策函数：假设 \\(f(x)=kx\\)\n写出损失函数，并求最优参数 \\(k\\)"
+  },
+  {
+    "objectID": "Lec1sjs.html#切线与导数",
+    "href": "Lec1sjs.html#切线与导数",
+    "title": "0x01 线性回归",
+    "section": "切线与导数",
+    "text": "切线与导数\n\n割线：记 \\(A\\) 为图像上一个定点，\\(B\\) 为图像上 \\(A\\) 附近的点，称直线 \\(AB\\) 为图像的割线\n切线：当 \\(B\\) 无限接近 \\(A\\) 时，割线 \\(AB\\) 无限接近经过 \\(A\\) 的一条直线 \\(l\\)，称 \\(l\\) 为图在点 \\(A\\) 处的切线。切线反映了切点附近函数值的变化趋势\n导数：切线的斜率"
+  },
+  {
+    "objectID": "Lec1sjs.html#例fxfrac18x2-在点-a20.5-处的切线",
+    "href": "Lec1sjs.html#例fxfrac18x2-在点-a20.5-处的切线",
+    "title": "0x01 线性回归",
+    "section": "例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线",
+    "text": "例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线"
+  },
+  {
+    "objectID": "Lec1sjs.html#例fxfrac18x2-在点-a20.5-处的切线斜率",
+    "href": "Lec1sjs.html#例fxfrac18x2-在点-a20.5-处的切线斜率",
+    "title": "0x01 线性回归",
+    "section": "例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线斜率",
+    "text": "例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线斜率\n\n方法一：记 \\(B\\) 点坐标为 \\(B(2+\\Delta x,f(2+\\Delta x))\\)，然后计算直线 \\(AB\\) 的斜率：\\(\\frac{f(2+\\Delta x)-0.5}{2+\\Delta x-2}\\)，给 \\(\\Delta x\\) 一个非常小的值，如 \\(0.00001\\)，得到切线斜率 \\(f'(2)\\) 的近似值，如 \\(0.50000125\\)，如果觉得不满意，就把 \\(\\Delta x\\) 再小一些……\n\ndef f(x):\n    return 1/8*x*x\nprint((f(2+0.00001)-0.5)/0.00001)\n\n方法二：对 \\(\\frac{f(2+\\Delta x)-0.5}{2+\\Delta x-2}\\) 继续进行推导，\\(\\frac{f(2+\\Delta x)-0.5}{2+\\Delta x-2}=\\frac{1}{2}+\\frac{1}{8}\\Delta x\\) ，当 \\(\\Delta x\\rightarrow 0\\) 时，\\(\\frac{f(2+\\Delta x)-0.5}{2+\\Delta x-2}\\rightarrow \\frac{1}{2}\\)，可以认为 \\(f'(2)=\\frac{1}{2}\\)\n事实上，\\(f(x)=\\frac{1}{8}x^2\\) 的过任意点 \\(A(x,f(x))\\) 的切线斜率 \\(f'(x)\\) 都可以按如上方法推导\n事实上，\\(f(x)=ax^2+bx+c\\) 的过点 \\(A(x,f(x))\\) 的切线斜率 \\(f'(x)\\) 也可按如上方法推导"
+  },
+  {
+    "objectID": "Lec1sjs.html#示例fxfrac18x2-在点-a20.5-处的切线斜率",
+    "href": "Lec1sjs.html#示例fxfrac18x2-在点-a20.5-处的切线斜率",
+    "title": "0x01 线性回归",
+    "section": "示例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线斜率",
+    "text": "示例：\\(f(x)=\\frac{1}{8}x^2\\) 在点 \\(A(2,0.5)\\) 处的切线斜率\n\n记 \\(A\\) 点附近的 \\(B\\) 点坐标为 \\((2+\\Delta x,f(2+\\Delta x))\\)\n割线 \\(AB\\) 的斜率为 \\[\n\\frac{f(2+\\Delta x)-f(2)}{2+\\Delta x-2}=\\frac{\\frac{1}{8}(2+\\Delta x)^2-\\frac{1}{8}2^2}{\\Delta x}=\\frac{1}{8}\\frac{4+4\\Delta x+\\Delta x^2-4}{\\Delta x}=\\frac{1}{2}+\\frac{1}{8}\\Delta x\n\\]\n\n当 \\(\\Delta x\\rightarrow 0\\) 时，割线的斜率越近于 \\(\\frac{1}{2}\\)，故 \\(f'(2)=\\frac{1}{2}\\)"
+  },
+  {
+    "objectID": "Lec1sjs.html#示例fxfrac18x2-在任意点-axfx-处的切线斜率",
+    "href": "Lec1sjs.html#示例fxfrac18x2-在任意点-axfx-处的切线斜率",
+    "title": "0x01 线性回归",
+    "section": "示例：\\(f(x)=\\frac{1}{8}x^2\\) 在任意点 \\(A(x,f(x))\\) 处的切线斜率",
+    "text": "示例：\\(f(x)=\\frac{1}{8}x^2\\) 在任意点 \\(A(x,f(x))\\) 处的切线斜率\n\n记 \\(A\\) 点附近的 \\(B\\) 点坐标为 \\((x+\\Delta x,f(x+\\Delta x))\\)\n割线 \\(AB\\) 的斜率为 \\[\n\\frac{f(x+\\Delta x)-f(x)}{x+\\Delta x-x}=\\frac{\\frac{1}{8}(x+\\Delta x)^2-\\frac{1}{8}x^2}{\\Delta x}=\\frac{1}{8}\\frac{x^2+2x\\Delta x+\\Delta x^2-x^2}{\\Delta x}=\\frac{1}{4}x+\\frac{1}{8}\\Delta x\n\\]\n\n\\(\\Delta x\\rightarrow 0\\) 时，割线的斜率越近于 \\(\\frac{1}{4}x\\)，故 \\(f'(x)=\\frac{1}{4}x\\)"
+  },
+  {
+    "objectID": "Lec1sjs.html#练习-1",
+    "href": "Lec1sjs.html#练习-1",
+    "title": "0x01 线性回归",
+    "section": "练习",
+    "text": "练习\n\n推导 \\(f(x)=2x^2+3x-4\\) 在任意点 \\(A(3,f(3))\\) 的导数\n推导 \\(f(x)=ax^2+bx+c\\) 在任意点 \\(A(x,f(x))\\) 的导数，其中 \\(a,b,c\\) 为参数"
+  },
+  {
+    "objectID": "Lec1sjs.html#切线斜率与最值的关系",
+    "href": "Lec1sjs.html#切线斜率与最值的关系",
+    "title": "0x01 线性回归",
+    "section": "切线斜率与最值的关系",
+    "text": "切线斜率与最值的关系"
   }
 ]
